@@ -1,0 +1,485 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio&family=Bebas+Neue&family=Carter+One&family=Exo+2&family=Fjalla+One&family=Luckiest+Guy&family=Orbitron&family=Oswald&family=Phudu&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bayon&family=Climate+Crisis&family=Playfair+Display&family=Sen&family=Vollkorn&display=swap');
+
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #2c2a30;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%2351e926' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+
+
+  font-family: 'Sen', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.header {
+  background: black;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  font-size: 30px;
+}
+
+.player-container {
+  margin: 50px;
+  color: white;
+  background-color: black;
+}
+
+.computer-container {
+  margin: 50px;
+  color: greenyellow;
+  background-color: black;
+}
+
+.game-container {
+  background-color: black;
+  padding: 1rem .5rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px; rgba(255, 255, 255, 0.737);
+  border: 3px double greenyellow;
+}
+
+.choice {
+  color: white;
+}
+
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.fa-regular {
+  font-size: 50px;
+  margin-right: 40px;
+  User-select: none;
+}
+
+.fa-regular:hover {
+  color: red;
+}
+
+.fa-regular.red {
+  color: red;
+}
+
+
+
+.reset-icon {
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 50px;
+  color: white;
+}
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-top: 3px solid white;
+  margin-top: 1rem;
+}
+
+.result-text {
+  font-size: 40px;
+  margin: unset;
+  margin-top: 20px;
+  color: white;
+}
+
+/* Media Query: Large Smartphone (Vertical) */
+@media screen and (max-width: 600px) {
+  .game-container {
+
+    height: 580px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .player-container {
+    margin: 50px 0 25px 25px;
+  }
+
+  .fa-regular {
+    margin-right: 20px;
+  }
+
+  .reset-icon {
+    margin-top: 25px;
+    margin-left: 25px;
+  }
+}
+
+/* Media Query: iPhone (Vertical) */
+@media screen and (max-width: 376px) {
+  .game-container {
+    height: 550px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .player-container {
+    margin: 43px 0 25px 20px;
+  }
+
+  .far {
+    font-size: 43px;
+  }
+
+  .reset-icon {
+    margin-top: 15px;
+  }
+
+  .result-container {
+    margin: 0 20px;
+  }
+}
+
+
+/* MY CSS STYLING */
+
+
+
+
+
+
+
+
+
+form { width: 800px;
+background-color: pink;
+border-radius: 25px;
+padding: 1rem;
+margin: 2rem auto;
+border: 7px double white;
+font-family: 'Sen';
+box-shadow: 0 5px 30px 10px rgba(255, 192, 203, 0.818);
+transition: all 0.3s;
+}
+
+input:valid {
+  border: 3px inset green;
+}
+
+input:invalid {
+  border: 3px inset red;
+}
+
+
+
+
+.message {
+  width: 100%;
+  border: 3px solid black;
+  background: transparent;
+  border-radius: 10px;
+  text-align: center;
+  color: black;
+  padding: .3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+:root {
+
+
+  /* small screen font-sizes */
+  --fs-200: 0.75rem;
+  --fs-300: 1rem;
+  --fs-400: 1.25rem;
+  --fs-500: 1.375rem;
+  --fs-600: 1.75rem;
+  --fs-900: 2.125rem;
+
+  --fw-200: 200;
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-700: 700;
+
+  --clr-neutral-100: #fff;
+  --clr-neutral-200: #eef1f6;
+  --clr-neutral-300: #a9afbc;
+  --clr-neutral-400: #737b8c;
+  --clr-neutral-500: #434956;
+  --clr-neutral-900: #020203;
+
+  --clr-primary-300: #f3f7ff;
+  --clr-primary-400: #8ea8da;
+
+  --br: 1rem;
+}
+
+
+
+/* reset */
+
+
+nav.navbar { background: url(https://cdn.pixabay.com/photo/2022/12/19/17/18/photos-7666143_960_720.jpg);
+padding: 5rem 0;
+background-size: 100%;
+background-blend-mode: multiply;
+background-color: rgba(94, 85, 224, 0.596);
+background-repeat: no-repeat;
+
+color: white;
+}
+
+.navbar-brand { color: white;
+font-family: 'Exo 2';
+font-size: 2rem;
+font-weight: bold;}
+
+.nav-link { color: white;}
+
+
+
+.pics { width: 500px;
+      height: 500px;
+      border-radius: 25px;
+      text-align: center;
+      margin: 1.5rem auto;
+}
+
+.waltcontainer {
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.waltcontainerMtb {
+  margin: 3rem auto;
+  padding: 1rem;
+}
+
+.waltcontainer90 {
+  width: 90rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+
+.section-title {
+    font-family: 'Righteous';
+    text-shadow: 2px 2px 10px rgba(214, 112, 112, 0.5), 2px 3px 10px rgba(192, 89, 89, 0.5), 2px 4px 10px rgba(200, 127, 127, 0.5);
+    color: rgb(6, 143, 217);
+    -webkit-text-stroke: 2px black;
+    font-size: 3rem;
+  }
+
+.section-title-red {
+
+    font-family: 'Righteous';
+    text-shadow: 2px 2px 10px rgba(214, 112, 112, 0.5), 2px 3px 10px rgba(192, 89, 89, 0.5), 2px 4px 10px rgba(200, 127, 127, 0.5);
+    color: rgb(252, 7, 7);
+    -webkit-text-stroke: 2px black;
+    font-size: 3rem;
+
+
+
+
+}
+.section-title-green {
+
+  font-family: 'Righteous';
+  text-shadow: 2px 2px 10px rgba(122, 214, 112, 0.5), 2px 3px 10px rgba(181, 231, 96, 0.5), 2px 4px 10px rgba(149, 224, 117, 0.5);
+  color: rgb(32, 252, 7);
+  -webkit-text-stroke: 2px black;
+  font-size: 30px;
+  text-align: center;
+
+
+
+
+}
+
+
+.section-title-yellow {
+    text-align: center;
+    font-family: 'Righteous';
+    text-shadow: 2px 2px 10px rgba(112, 129, 214, 0.5), 2px 3px 10px rgba(89, 110, 192, 0.5), 2px 4px 10px rgba(132, 127, 200, 0.5);
+    color: rgb(252, 232, 7);
+    -webkit-text-stroke: 2px black;
+    font-size: 3rem;
+
+
+
+
+}
+
+
+.section-title-pink {
+  text-align: center;
+  font-family: 'Righteous';
+  text-shadow: 2px 2px 10px rgba(241, 156, 246, 0.5), 2px 3px 10px rgba(217, 118, 235, 0.5), 2px 4px 10px rgba(234, 85, 247, 0.5);
+  color: rgb(236, 161, 202);
+  -webkit-text-stroke: 2px white;
+  font-size: 3rem;
+
+}
+
+.section-title-pinkblack {
+  text-align: center;
+  font-family: 'Righteous';
+  text-shadow: 2px 2px 10px rgba(12, 4, 12, 0.44), 2px 3px 10px rgba(10, 6, 11, 0.5), 2px 4px 10px rgba(10, 5, 10, 0.5);
+  color: rgb(236, 161, 202);
+  -webkit-text-stroke: 2px black;
+  font-size: 3rem;
+
+}
+
+  .sub-title {
+    font-family: 'Righteous';
+    text-shadow: 2px 2px 10px rgba(90, 151, 220, 0.5), 2px 3px 10px rgba(71, 147, 214, 0.5), 2px 4px 10px rgba(21, 143, 236, 0.5);
+    color: rgb(214, 72, 72);
+    -webkit-text-stroke: 2px black;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .font1 {
+
+    font-family: 'Bebas Neue';
+    text-shadow: 2px 2px 10px rgba(90, 151, 220, 0.5), 2px 3px 10px rgba(71, 147, 214, 0.5), 2px 4px 10px rgba(21, 143, 236, 0.5);
+    color: rgb(214, 72, 72);
+    -webkit-text-stroke: 2px black;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: .3rem;
+
+  }
+
+
+  .font2 { 
+    font-family: 'Carter One';
+    text-shadow: 2px 2px 10px rgba(214, 112, 112, 0.5), 2px 3px 10px rgba(192, 89, 89, 0.5), 2px 4px 10px rgba(200, 127, 127, 0.5);
+    color: rgb(6, 143, 217);
+    text-align: center;
+    -webkit-text-stroke: 2px black;
+    font-size: 1.3rem;
+    letter-spacing: .1rem;
+  }
+
+  .font3 { 
+    font-family: 'Phudu';
+    text-shadow: 2px 2px 10px rgba(112, 204, 214, 0.5), 2px 3px 10px rgba(31, 239, 229, 0.5), 2px 4px 10px rgba(37, 236, 243, 0.5);
+    color: rgb(238, 251, 0);
+    text-align: center;
+    -webkit-text-stroke: 2px black;
+    font-size: 1.3rem;
+    letter-spacing: .1rem;
+  }
+
+  .hr {
+    margin: 1rem 0;
+    padding: .2rem;
+    background: linear-gradient(black,red,pink, red,black);
+    border: 2px solid white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.771);
+  }
+
+  .hr-city {
+
+    margin: 1rem 0;
+    padding: .5rem;
+    height: 5px;
+    background-color: red;
+    background-blend-mode: multiply;
+    background: url(https://cdn.pixabay.com/photo/2023/02/09/16/36/bridge-7779222_960_720.jpg);
+    border: 3px solid black;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.771);
+
+  }
+
+  .booty {
+    background: url(https://images-cdn.9gag.com/photo/ad6bobV_700b.jpg);
+    padding: 3rem .5rem;
+    border-radius: 25px;
+    margin: 1rem auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.737);
+    background-blend-mode: multiply;
+    background-color: rgba(255, 166, 0, 0.663);
+    background-size: 400px;
+
+  }
+  
+  section {
+    padding: 2.5rem 0;
+  }
+  
+  @media (min-width: 40em) {
+    section {
+      padding: 3.5rem 0;
+    }
+  }
+  
+
+  
+  .flow-content > * + * {
+    margin-top: var(--flow-spacer, 1em);
+  }
+  
+  .split {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .split > * + * {
+    margin: 4rem 0 0 0;
+  }
+  
+  .split > * {
+    flex-basis: 100%;
+  }
+  
+  @media (min-width: 40em) {
+    .split {
+      flex-direction: row;
+    }
+  
+    .split > * + * {
+      margin: 0 0 0 2.5rem;
+    }
+  }
+  
+  .xl-space {
+    margin-top: 5rem;
+  }
+
+
+
+   .form-control {
+    border: 3px inset black;
+    
+  }
+
